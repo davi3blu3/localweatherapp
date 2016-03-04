@@ -6,27 +6,8 @@ var temp = document.getElementById("temp");
 var condition = document.getElementById("condition");
 var weatherImage = document.getElementById("weather-image")
 
-/* XML REQUEST TO YAHOO WEATHER YQL
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='nashville, tn')&format=json", true);
 
-// deleted from end of url &callback=callbackFunction
-
-xhr.send();
-
-date.innerHTML = xhr.responseText;
-condition.innerHTML = xhr.response;
-
-/*
-xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-        temp.innerHTML = "function triggered";
-    } else {
-        temp.innerHTML = "failed";
-    }
-}
-*/
-// is function needed inside ready state change func?
+// callback function triggered by HTML <script> tag
 var callbackFunction = function(data) {
     var dateResponse = data.query.results.channel.item.condition.date;
     var tempResponse = data.query.results.channel.item.condition.temp;

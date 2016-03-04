@@ -2,6 +2,11 @@ body {
     text-align: center;
     font-family: sans-serif;
     color: white;
+    /*
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/32/Blank_US_Map.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    */
 }
 
 #header {

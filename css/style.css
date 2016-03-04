@@ -5,12 +5,13 @@ body {
 #weather-container {
     margin: 0 auto;
     width: 50%;
-    border-radius: 10%;
+    border-radius: 30px;
     background-color: #2B7FD3;
     opacity: .5;
     -webkit-box-shadow: -10px 10px 24px 0px rgba(102,102,102,1);
     -moz-box-shadow:    -10px 10px 24px 0px rgba(102,102,102,1);
     box-shadow:         -10px 10px 24px 0px rgba(102,102,102,1);
+    color: white;
 }
 
 #temperature {

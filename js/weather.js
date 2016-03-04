@@ -6,23 +6,24 @@
 */
 
 /*
-  var callbackFunction = function(data) {
-    var wind = data.query.results.channel.wind;
-    alert(wind.chill);
-  };
 
+
+var display = document.getElementById("weather-container");
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://weather.yahooapis.com/forecastrss?w=2457170", true);
+xhr.open("GET", "http://weather.yahooapis.com/forecastrss?w=2457170", true, consumerKey);
 xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
-        console.log(readBody(xhr));
+        display.innerHTML = readBody(xhr);
     }
 }
 xhr.send();
 
-<script src="https://query.yahooapis.com/v1/public/yql?q=select wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=callbackFunction"></script>
 */
 
 var display = document.getElementById("weather-container");
+var callbackFunction = function(data) {
+    var data = JSON.stringify(data);
+    display.innerHTML = data;
+};
 
-display.innerHTML += "BooYaaaa";
+

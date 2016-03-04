@@ -20,10 +20,16 @@ xhr.send();
 
 */
 
-var display = document.getElementById("weather-container");
+var date = document.getElementById("date");
+var temp = document.getElementById("temp");
+var condition = document.getElementById("condition");
 var callbackFunction = function(data) {
-    var data = JSON.stringify(data);
-    display.innerHTML = data;
+    var dateResponse = JSON.stringify(data.query.results.channel.item.condition.date);
+    var tempResponse = JSON.stringify(data.query.results.channel.item.condition.temp);
+    var conditionResponse = JSON.stringify(data.query.results.channel.item.condition.text);
+    date.innerHTML += dateResponse;
+    temp.innerHTML = tempResponse;
+    condition.innerHTML += conditionResponse;
 };
 
 

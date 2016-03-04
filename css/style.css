@@ -1,20 +1,41 @@
 body {
     text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+
+#header {
+    color: #2B7FD3;
+    font-size: 3em;
+}
+
+#date {
+    color: #2B7FD3;
+    font-size: 1.5em;
 }
 
 #weather-container {
     margin: 0 auto;
-    width: 50%;
+    padding: 10px;
+    display: inline-block;
     border-radius: 30px;
     background-color: #2B7FD3;
     opacity: .5;
     -webkit-box-shadow: -10px 10px 24px 0px rgba(102,102,102,1);
     -moz-box-shadow:    -10px 10px 24px 0px rgba(102,102,102,1);
     box-shadow:         -10px 10px 24px 0px rgba(102,102,102,1);
-    color: white;
+}
+
+.inline-container {
+    display: inline-block;
 }
 
 #temperature {
-    font-size: 4em;
-    color: white;
+    font-size: 5em;
+    margin: 0 10px 0 0;
+}
+
+#condition {
+    font-size: 1.5em;
+    margin: 0 0 0 10px;
 }

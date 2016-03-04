@@ -35,7 +35,6 @@ var callbackFunction = function(data) {
         var imgBegin = weatherDescription.indexOf('<img');
         var imgEnd = weatherDescription.indexOf('>');
         var imageResponse = weatherDescription.substring(imgBegin, imgEnd+1);
-    alert(imageResponse);
     date.innerHTML = dateResponse;
     temp.innerHTML = tempResponse;
     condition.innerHTML = conditionResponse;

@@ -16,13 +16,17 @@
         
         
         
-        <h1>Local Weather</h1>
+        <h1 id="header">Local Weather</h1>
+        <h4 id="date">Friday March 4 2016</h4>
         
         <div id="weather-container">
-            <h5 id="date"></h5>
-            <h2 id="temperature"><span id="temp"></span>&#8457</h2>
-            <h4 id="condition"></h4>
-            <h4 id="weather-image"></h4>
+            <div class="inline-container">
+                <h2 id="temperature"><span id="temp">106</span>&#8457</h2>
+            </div>
+            <div class="inline-container">
+                <div id="weather-image"></div>
+                <h2 id="condition">cloudy</h2>
+            </div>
         </div>
         
         
@@ -33,7 +37,7 @@
         
         <script src="js/config.js"></script>
         <script src="js/weather.js"></script>
-        <script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='nashville, tn')&format=json&callback=callbackFunction"></script>
+        <!--script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='nashville, tn')&format=json&callback=callbackFunction"></script-->
 
     </body>
 </html>

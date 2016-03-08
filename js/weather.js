@@ -6,6 +6,8 @@ var temp = document.getElementById("temp");
 var condition = document.getElementById("condition");
 var weatherImage = document.getElementById("weather-image")
 
+var city = "seattle, wa";
+
 
 // callback function triggered by HTML <script> tag
 var callbackFunction = function(data) {
@@ -22,7 +24,18 @@ var callbackFunction = function(data) {
     weatherImage.innerHTML = imageResponse; // changed variable
 };
 
-/*
+
+// ATTEMPT TO MOVE SCRIPT TAG FROM HTML TO JS FILE
+var script = document.createElement('script');
+var address = "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='nashville, tn')&format=json&callback=callbackFunction";
+script.src = address; 
+document.body.appendChild(script);
+
+
+
+
+/*** API sample JSON input ***
+
 {"query":
   {"count":1,
    "created":"2016-03-04T19:27:23Z",

@@ -1,3 +1,41 @@
+// GEOLOCATION
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getWeather);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+        var latitude = 21.3069;
+        var longitude = -157.8583;
+        weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude, true);
+		weatherRequest.send();
+    }
+}
+
+function getWeather(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    weatherRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude, true);
+	weatherRequest.send();
+}
+
+var weatherRequest = new XMLHttpRequest();
+weatherRequest.onreadystatechange = function () {
+	var DONE = this.DONE || 4;
+	if (this.readyState === DONE){
+		var Response = JSON.parse(weatherRequest.responseText);
+		var tempKelvin = Response.main.temp;
+		var tempFahrenheit = Math.round((tempKelvin - 273.15) * 1.800 + 32);
+		var weatherIcon = Response.weather[0].icon;
+		document.getElementById('location').innerHTML = Response.name;
+		document.getElementById('temp').innerHTML = tempFahrenheit + "&deg;";
+		document.getElementById('icon').setAttribute("src", "http://openweathermap.org/img/w/" + weatherIcon + ".png");
+		document.getElementById('description').innerHTML = Response.weather[0].description;
+	}
+};
+
+getLocation();
+
 
 
 // DECLARE DOM VARIABLES
@@ -6,7 +44,8 @@ var temp = document.getElementById("temp");
 var condition = document.getElementById("condition");
 var weatherImage = document.getElementById("weather-image")
 
-var city = "seattle, wa";
+// variable-ify the location for weather info request
+var city = "bostom, ma";
 
 
 // callback function triggered by HTML <script> tag
@@ -27,9 +66,11 @@ var callbackFunction = function(data) {
 
 // ATTEMPT TO MOVE SCRIPT TAG FROM HTML TO JS FILE
 var script = document.createElement('script');
-var address = "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='nashville, tn')&format=json&callback=callbackFunction";
+var address = "https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='"+ city +"')&format=json&callback=callbackFunction";
 script.src = address; 
 document.body.appendChild(script);
+
+
 
 
 
